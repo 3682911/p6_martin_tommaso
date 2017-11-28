@@ -1,0 +1,2 @@
+L'analisi strutturale testa tutti gli statement di tutte le classi, ad eccezione del main e dell'home controller.
+C'è un unico statement in tutto il codice che non riesco a raggiungere con il test strutturale: un'eccezione IOException all'interno dell'AnalysisManager che non riesco a scatenare.
