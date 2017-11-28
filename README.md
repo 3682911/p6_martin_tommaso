@@ -1,1 +1,1 @@
-Locus Coeruleus
+Locus Coeruleus Analyzer
