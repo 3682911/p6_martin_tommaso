@@ -29,6 +29,10 @@ public class AnalysisManagerTest {
 	String path;
 	String sp;
 
+	/*
+	 * Prima di effettuare un test devo generare dei file dal formato compatibile con
+	 * quello richiesto dall'applicazione per funzionare
+	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws FileNotFoundException, UnsupportedEncodingException {
 		//Load the opencv .dll library
@@ -75,6 +79,9 @@ public class AnalysisManagerTest {
 		writer.println("b 654");
 		writer.close();
 		
+		/*
+		 * Genero un video composto da 2 frame con 2 rettangoli
+		 */
 		Mat testFrame = new Mat(320, 240, CvType.CV_8UC3, new Scalar(255, 230, 240));
 		for (int i=100; i<120; i++) {
 		    for (int j=30; j<80; j++) {
@@ -122,7 +129,7 @@ public class AnalysisManagerTest {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		a1.closeAnalysis();
+		AnalysisManager.closeAnalysis();
 		a1.analyze();
 	}
 	

@@ -26,6 +26,10 @@ public class UC1Test {
 	
 	AnalysisManager analysisManager;
 
+	/*
+	 * Prima di effettuare un test devo generare dei file dal formato compatibile con
+	 * quello richiesto dall'applicazione per funzionare
+	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws FileNotFoundException, UnsupportedEncodingException {
 		//Load the opencv .dll library
@@ -57,7 +61,10 @@ public class UC1Test {
 						throw new RuntimeException("Failed to load opencv native library", e);
 					}
 				}
-		
+		/*
+		 * Genero una nuova cartella internamente al progetto in modo da non avere
+		 * problemi di path
+		 */
 		String path = "Experiment";
 		File newFolder = new File(path);
 		String sp = System.getProperty("file.separator");
@@ -106,12 +113,18 @@ public class UC1Test {
 			newFolder.mkdir();
 		}
 		
+		/*
+		 * Input corretti -> avvio analisi
+		 */
 		analysisManager = new AnalysisManager(path + sp, path + sp, 20, "testshold");
 		assertTrue(analysisManager.arePathsValid());
 		if (analysisManager.arePathsValid()) {
 			analysisManager.analyze();
 		}
 		
+		/*
+		 * Input non corretti -> non avvio l'analisi
+		 */
 		analysisManager = new AnalysisManager("Fail sourcepath", path + sp, 20, "testshold");
 		assertFalse(analysisManager.arePathsValid());
 		analysisManager = new AnalysisManager(path + sp, "Fail sourcepath", 20, "testshold");

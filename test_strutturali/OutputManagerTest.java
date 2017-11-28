@@ -37,6 +37,9 @@ public class OutputManagerTest {
 		assertNotNull(o1);
 	}
 
+	/*
+	 * Prima provo a creare dei file di output poi ne verifico l'esistenza
+	 */
 	@Test
 	public void testCreateOutputDataFile() throws FileNotFoundException, UnsupportedEncodingException {
 		o1 = new OutputManager(path + sp);
@@ -44,6 +47,7 @@ public class OutputManagerTest {
 		r1.insertStimulus(new Stimulus("asd", 1, 2, 3));
 		r1.insertTrial(new Trial(new Stimulus("dsa", 4, 5, 6), 100));
 		o1.createOutputDataFile(r1, "test sourcepath");
+		assertTrue(new File(path + sp + "ExperimentData.txt").exists());
 	}
 
 	@Test
@@ -52,6 +56,7 @@ public class OutputManagerTest {
 		VideoData v1 = new VideoData();
 		v1.insertPupil(new Ellipse(10, 20, new Point(0, 0), 30));
 		o1.createOutputSizesFile(v1, "test sourcepath");
+		assertTrue(new File(path + sp + "ExperimentSizes.txt").exists());
 	}
 
 }

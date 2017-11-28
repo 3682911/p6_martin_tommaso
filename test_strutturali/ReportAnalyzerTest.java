@@ -29,9 +29,13 @@ public class ReportAnalyzerTest {
 		assertNotNull(r1);
 	}
 
+	/*
+	 * Analizzo l'esperimento fittizio e verifico che il reportData generato non sia
+	 * vuoto
+	 */
 	@Test
 	public void testAnalyze() throws IOException {
-		r1.analyze();
+		assertTrue(r1.analyze().getAllTrials().size() > 0);
 	}
 
 }

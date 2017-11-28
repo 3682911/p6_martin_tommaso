@@ -20,6 +20,9 @@ public class UC2Test {
 		String path = "Experiment";
 		String sp = System.getProperty("file.separator");
 		
+		/*
+		 * Il file returned simula il file restituito dal dialog di ricerca
+		 */
 		File returned = null;
 	    if (returned != null) {
 	    	destinationPath = "User selected path";
